@@ -1,0 +1,53 @@
+1.help sheeba out
+ void findno(int *arr, int len)
+{ 
+int *current , *end = arr + len - 1;
+for ( current = arr + 1; arr < end; arr++, current = arr + 1 )
+ { 
+ while ( current <= end )
+   {
+   if ( *current == *arr)
+            {
+            *current = *end--;
+            }
+            else
+            {
+                current++;
+            }
+        }
+    }
+}
+3.Close to zero
+ void minSumPair(int arr[], int size)
+{
+  int count = 0;
+  int l, r, minsum, sum, min_l, min_r;
+ 
+  
+  min_l = 0;
+  min_r = 1;
+  minsum = arr[0] + arr[1];
+ 
+  for(l = 0; l < size - 1; l++)
+  {
+    for(r = l+1; r < size; r++)
+    {
+      sum = arr[l] + arr[r];
+      if(abs(minsum) > abs(sum))
+      {
+        min_sum = sum;
+        min_l = l;
+        min_r = r;
+      }
+    }
+  }
+ 
+  printf(" The two elements whose sum is minimum are %d and %d",
+          arr[min_l], arr[min_r]);
+}
+ 
+int main()
+{
+  int arr[] = {1, 60, -10, 70, -80, 85};
+  minSumPair(arr, 6);
+}
